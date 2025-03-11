@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP_AWSTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c0e22674ed2fbaa637726eb8a89be27c78438b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e09f484bef6a07474835da32aa8c4760ef64a5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP_AWSTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP_AWSTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
