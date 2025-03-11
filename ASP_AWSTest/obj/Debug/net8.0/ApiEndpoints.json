@@ -1,0 +1,66 @@
+[
+  {
+    "ContainingType": "ASP_AWSTest.Controllers.SESController",
+    "Method": "SendEmailAsync",
+    "RelativePath": "ses/send-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recipientEmail",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ASP_AWSTest.Controllers.SNSController",
+    "Method": "SendSnsEmailAsync",
+    "RelativePath": "sns/send-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "topicArn",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ASP_AWSTest.Controllers.SNSController",
+    "Method": "SendSnsSMSAsync",
+    "RelativePath": "sns/send-sms",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phNo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ASP_AWSTest.Controllers.SQSController",
+    "Method": "SendQueueAsync",
+    "RelativePath": "sqs/queue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "QueueUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

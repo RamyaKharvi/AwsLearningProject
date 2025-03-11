@@ -1,0 +1,94 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ASP_AWSTest",
+    "version": "1.0"
+  },
+  "paths": {
+    "/ses/send-email": {
+      "get": {
+        "tags": [
+          "SES"
+        ],
+        "parameters": [
+          {
+            "name": "recipientEmail",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/sns/send-sms": {
+      "post": {
+        "tags": [
+          "SNS"
+        ],
+        "parameters": [
+          {
+            "name": "phNo",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/sns/send-email": {
+      "get": {
+        "tags": [
+          "SNS"
+        ],
+        "parameters": [
+          {
+            "name": "topicArn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/sqs/queue": {
+      "get": {
+        "tags": [
+          "SQS"
+        ],
+        "parameters": [
+          {
+            "name": "QueueUrl",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}
