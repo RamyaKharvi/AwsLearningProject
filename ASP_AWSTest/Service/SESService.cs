@@ -56,7 +56,7 @@ public class SESService : ISESService
         }
         catch (Exception ex)
         {
-            return (Response<SendEmailResponse>.FailureResult(message: ex.Message), HttpStatusCode.InternalServerError);
+            return (Response<SendEmailResponse>.FailureResult(message: ex.Message), HttpStatusCode.BadRequest);
         }
     }
 }

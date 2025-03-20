@@ -4,33 +4,39 @@ using Amazon.SimpleNotificationService.Model;
 using ASP_AWSTest.Constant;
 using ASP_AWSTest.IService;
 using ASP_AWSTest.Response;
+using Microsoft.Extensions.Logging;
 
 namespace ASP_AWSTest.Service;
 
 public class SNSService : ISNSService
 {
     private readonly IAmazonSimpleNotificationService _amazonSnsService;
-    public SNSService(IAmazonSimpleNotificationService amazonSimpleNotificationService)
+    private readonly ILogger<SNSService> _logger;
+    public SNSService(IAmazonSimpleNotificationService amazonSimpleNotificationService, ILogger<SNSService> logger)
     {
         _amazonSnsService = amazonSimpleNotificationService;
+        _logger = logger;
     }
     public async Task<(Response<PublishResponse>, HttpStatusCode)> SendSMSAsync(string phNo)
     {
         try
         {
+            _logger.LogInformation("SNS send SMS process started.");
             var publishRequest = new PublishRequest
             {
                 PhoneNumber = phNo,
-                Message = SNSConstant.Message,
+                Message = SNSConstant.TextMessage + DateTime.Now.ToLongDateString(),
             };
 
             var response = await _amazonSnsService.PublishAsync(publishRequest);
+            _logger.LogInformation("SMS sent to phone.");
 
             return (Response<PublishResponse>.SuccessResult(message:$"SMS sent to {phNo}.", data:response), HttpStatusCode.OK);
 
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex.Message);
             return (Response<PublishResponse>.FailureResult(ex.Message), HttpStatusCode.InternalServerError);
         }
     }
@@ -42,7 +48,7 @@ public class SNSService : ISNSService
             var publishRequest = new PublishRequest
             {
                 TopicArn = topicArn,
-                Message = SNSConstant.Message,
+                Message = SNSConstant.EmailMessage + DateTime.Now.ToLongDateString(),
                 Subject = SNSConstant.EmailSubject
             };
 

@@ -2,5 +2,5 @@
 
 public class SQSConst
 {
-    public const string? Message = $"This is a test queue. ";
+    public const string? Message = "Hello. This is a test queue message. ";
 }

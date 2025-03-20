@@ -23,7 +23,7 @@ namespace ASP_AWSTest.Controllers
         {
             try
             {
-
+                _logger.LogInformation("Process started.");
                 var (result, statusCode) = await _sesService.SendEmailAsync(recipientEmail);
 
                 if (statusCode == HttpStatusCode.OK)
@@ -31,7 +31,7 @@ namespace ASP_AWSTest.Controllers
                     _logger.LogInformation($"Status code: {statusCode}");
                     return StatusCode((int)statusCode, result);
                 }
-                _logger.LogInformation($"Status code: {statusCode}");
+                _logger.LogWarning($"Status code: {statusCode}");
                 return StatusCode((int)statusCode, result);
             }
             catch (Exception ex)
