@@ -1,5 +1,6 @@
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
+using Amazon.S3;
 using Amazon.SimpleEmail;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
@@ -23,12 +24,14 @@ builder.Services.AddAWSService<IAmazonSimpleNotificationService>();
 builder.Services.AddAWSService<IAmazonSQS>();
 builder.Services.AddAWSService<IAmazonDynamoDB>();
 builder.Services.AddSingleton<IDynamoDBContext, DynamoDBContext>();
+builder.Services.AddAWSService<IAmazonS3>();
 
 // Add your services
 builder.Services.AddTransient<ISESService, SESService>();
 builder.Services.AddTransient<ISNSService, SNSService>();
 builder.Services.AddTransient<ISQSService, SQSService>();
 builder.Services.AddTransient<IDynamoDbService, DynamoDbService>();
+builder.Services.AddTransient<IS3Service, S3Service>();
 
 var awsOptions = builder.Configuration.GetSection("AWS").Get<AWSLoggerConfig>();
 builder.Logging.ClearProviders(); // Remove default providers

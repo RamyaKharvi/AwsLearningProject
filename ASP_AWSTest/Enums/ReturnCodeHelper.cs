@@ -15,10 +15,6 @@ public class ReturnCodeHelper
             ReturnCode.MISSING_REQUIRED_PARAMETER => "A required parameter is missing. Please check your request.",
             ReturnCode.MISSING_REQUIRED_BODY => "The request body is required but was not provided.",
             ReturnCode.BAD_REQUEST => "Bad request. Please verify your input and try again.",
-            ReturnCode.DATABASE_ERROR => "A database error occurred. Please try again later",
-            ReturnCode.INVALID_TRANSACTION_TYPE => "Invalid transaction type provided. Please try again.",
-            ReturnCode.INVALID_TCK_ACTION => "Invalid action provided for ticket system. Please try again.",
-            _ => "An unknown error occurred."
         };
     }
 }
